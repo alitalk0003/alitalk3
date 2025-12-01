@@ -496,7 +496,11 @@ async function fetchByCategory({ categoryId }) {
   // .slice(2 * Math.round(divided[5].length / 3), Math.round(divided[5].length));
 
   const categoryRes = divided[1]
-    .slice(0, Math.round(divided[1].length / 3))
+    .slice(
+      Math.round(divided[1].length / 3),
+      Math.round(2 * divided[1].length) / 3
+    )
+
     .map((item) =>
       limit(async () => {
         const cat = await ProductCategories.findOne({
